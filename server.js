@@ -12,11 +12,13 @@ app.get('/', function(request,response){
 });
 
 app.post('/', function(req, res){
-    let number1 = req.body.num1;
-    let number2 = req.body.num2;
+    let number1 = Number(req.body.num1);
+    let number2 = Number(req.body.num2);
     console.log("Number 1 ", number1);
     console.log("Number 2 ", number2);
-    res.redirect('/');
+    let result = number1 + number2;
+    console.log(req.body);
+    res.send(`${result}`);
 });
 
 app.listen(3000, function(){
